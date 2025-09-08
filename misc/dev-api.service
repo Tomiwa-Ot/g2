@@ -1,0 +1,15 @@
+[Unit]
+Description=G2 Dev
+After=network.target
+
+[Service]
+WorkingDirectory=/var/www/dev
+ExecStart=/usr/bin/dotnet G2.API.dll
+Environment=ASPNETCORE_ENVIRONMENT=Development
+Restart=always
+RestartSec=10
+SyslogIdentifier=g2-dev
+User=github-deploy
+
+[Install]
+WantedBy=multi-user.target

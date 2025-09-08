@@ -1,0 +1,15 @@
+[Unit]
+Description=G2 Prod
+After=network.target
+
+[Service]
+WorkingDirectory=/var/www/prod
+ExecStart=/usr/bin/dotnet G2.API.dll
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Restart=always
+RestartSec=10
+SyslogIdentifier=g2-prod
+Usergithub-deploy
+
+[Install]
+WantedBy=multi-user.target
